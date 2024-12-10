@@ -1,0 +1,9 @@
+#pd.Series(列表) #以列表為底，建立Series(單維度）
+#資料索引
+data=pd.Series([5,3,-9,8,7],index=['a','b','c','d','e'])
+#數字運算：基本、桶幾、順序
+print('乘法總和：',data.prod())
+print('中位數:',data.median())
+print('標準差：',data.std())
+print('最大2個數：\n',data.nlargest(2))
+print('最小3個數:\n',data.nsmallest(3))
