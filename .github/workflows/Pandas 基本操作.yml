@@ -1,0 +1,15 @@
+import pandas as pd
+#pd.Series(列表) #以列表為底，建立Series(單維度）
+#建立DataFrame
+data=pd.DataFrame({
+    "name":["Kelly","Robert","Kylie"],
+    "salary":[55000,65000,32000]
+})
+#基本DataFrame 操作
+print(data)
+#取得特定欄位
+print('--------------------')
+print(data["salary"])
+print('--------------------')
+#取得特定列
+print(data.iloc[0])
