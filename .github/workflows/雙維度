@@ -1,1 +1,24 @@
-
+import pandas as pd
+data=pd.DataFrame({
+    'name':['Kelly','Rachel','Pheobe'],
+    'salary':[55000,40000,42000]
+},index=['a','b','c']) #三列兩欄,index可寫可不寫
+print(data)
+print('============================')
+print('屬性型狀（列，欄)',data.shape)
+#根據順序取得一整列(Row\橫向)data.iloc[順序]
+print('取得第二列',data.iloc[1],sep='\n')
+#根據索引取一整列(Row\橫向)data.loc[索引]
+print('取得第a列',data.loc['a'],sep='\n')
+#取得一整欄(column\直向)data[欄位名稱]
+print('取得name欄位',data['name'],sep='\n')
+names=data['name'] #取得Series資料
+print('把name全部轉大寫',names.str.upper(),sep='\n')
+salaries=data['salary']
+print('salary平均值',int(salaries.mean()))
+#建立新欄位
+data['revenue']=[600000,400000,500000] #data[新欄位名稱]=列表
+data['rank']=pd.Series([1,3,2],index=['a','b','c']) #data[新欄位名稱]=Series的資料
+#data['CP']=data['salary'] #根據現有欄位產生新欄位
+data['CP']=data['revenue']/data['salary']
+print(data)
