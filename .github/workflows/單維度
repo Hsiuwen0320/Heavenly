@@ -7,3 +7,7 @@ print('中位數:',data.median())
 print('標準差：',data.std())
 print('最大2個數：\n',data.nlargest(2))
 print('最小3個數:\n',data.nsmallest(3))
+
+data=pd.Series(['Have','a','Nice','Day'])
+print(data.str.cat(sep=','))
+print(data.str.replace('Nice','Heavenly'))
