@@ -1,0 +1,44 @@
+#多為陣列的形狀shape
+#維度：資料的層次 形狀：同時表達資料的層次，和每個層次的資料數量
+#扁平化資料：把維度的資料打平成一維陣列 data.ravel()
+#重塑資料形狀：改變資料維度，資料總數量必須一樣 data.reshape
+import numpy as np
+data=np.ones(10)
+print(data)
+print(data.shape)
+data=np.array([   #創造2x3的二維陣列
+    [1,2,3],
+    [4,5,6]
+])
+print(data.shape)
+#資料轉置 橫變直
+print(data.T.shape) #3x2
+#扁平化資料
+data=np.array([
+    [
+        [2,1,3],[1,2,3]
+    ],
+    [
+        [0,2,1],[8,9,10]
+    ]
+]) #2x2x3
+newData=data.ravel()
+print(newData)
+#重塑資料形狀
+data=np.array([
+    [
+        [2,1,3],[1,2,3]
+    ],
+    [
+        [0,2,1],[8,9,10]
+    ]
+]) #2x2x3=12
+newData=data.reshape(3,4) #3x4=12
+print(newData)
+newData=data.reshape(1,6,2)
+print(newData)
+data=np.zeros(18).reshape(3,6) #初始化常用一或零
+print(data)
+data=np.arange(8).reshape(2,4)
+print(data)
+print(data.T)

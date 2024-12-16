@@ -1,0 +1,48 @@
+import numpy as np
+#多維陣列
+#np.array([])建立列表
+#np.empty() 資料未指定的陣列
+#np.zeros() 資料都是０的陣列，預設浮點數0.
+#np.ones() 資料都是1的陣列
+#np.arange()
+data=np.array([   #創造3x3的二維陣列
+    [1,2,3],
+    [4,5,6],
+    [6,7,8]
+])
+print(data)
+data=np.empty([3,3]) #創造3x3的二維陣列，資料未指定
+print(data)
+print(np.zeros([5,3]))#資料都是０的5x3二維陣列
+data=np.array([ #根據列表創造一個2x2x2的三維陣列
+    [
+        [3,1],[1,2]
+    ],
+    [
+        [2,5],[10,2]
+    ]
+])
+print(data)
+data2=np.array([  ##根據列表創造一個1x1x2x3的四維陣列
+    [
+        [
+            [1, 2, 3],
+            [4, 5, 6]
+        ]
+
+    ]
+])
+print(data2)
+data3=np.array([
+    [
+        [
+            [1,1]
+        ]
+    ],
+    [
+        [
+           [1,1]
+        ]
+    ]
+])
+print(data3) #結果＝np.ones([2,1,1,2])
