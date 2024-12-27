@@ -9,3 +9,22 @@ plt.bar(['B','A','C'],[8,10,16],width=0.5,color='pink')
 plt.xlabel('x軸')
 plt.ylabel('y軸')
 plt.show()
+------------------------------------------------------------
+import matplotlib.pyplot as plt
+plt.rc('font',family= 'Biaukai')
+import csv
+with open('/Users/chenghsiuwen/Desktop/bar.csv',encoding='utf-8') as file:
+    import warnings
+    warnings.filterwarnings("ignore", "Glyph.*?missing from font")
+    reader=csv.reader(file)
+    header=next(reader) #讀取第一列
+    x=[]
+    height=[]
+    for row in reader:
+        print(row)
+        x.append(row[0])
+        height.append(int(row[1]))
+    plt.bar(x,height,width=0.5,color='gray')
+    plt.xlabel(header[0])
+    plt.ylabel(header[1])
+    plt.show()
