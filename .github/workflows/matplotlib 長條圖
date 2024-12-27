@@ -1,0 +1,11 @@
+#plt.bar(x,height)：x軸為數字，連續性/字串，離散性
+#width寬度,color顏色
+#軸線標題:xlabel(),ylabel()
+import matplotlib.pyplot as plt
+plt.rc('font',family= 'BiauKai')
+plt.bar([3,4,1],[8,5,2])
+plt.show()
+plt.bar(['B','A','C'],[8,10,16],width=0.5,color='pink')
+plt.xlabel('x軸')
+plt.ylabel('y軸')
+plt.show()
