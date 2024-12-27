@@ -1,1 +1,21 @@
+#plt.scatter([x],[y]):根據資料點畫出散布圖
+#s參數設定大小,c參數設定顏色
+#label標籤,legend圖例
+from cProfile import label
+
+import matplotlib.pyplot as plt
+
+plt.rc('font',family= 'BiauKai')
+plt.scatter([2,4,3],[4,3,6],c='black',s=10) #一組(2,4),(4,3),(3,6)
+plt.show()
+"""
+    兩組資料點
+     第一組(2,4),(4,3),(3,6)
+     第二組(1,2),(3,5),(4,4)
+"""
+plt.scatter([2,4,3],[4,3,6],label='標籤一')
+plt.scatter([1,3,4],[2,5,4],label='標籤二')
+plt.legend()
+plt.show()
+
 
