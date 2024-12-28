@@ -1,0 +1,46 @@
+#K線圖：：使用長條圖堆疊出K線圖
+import matplotlib.pyplot as plt
+plt.rc('font',family='Biaukai')
+"""
+   範例：
+      日期   價格
+      12/25  開盤 95, 收盤 80, 最高 100, 最低 75
+      12/26  開盤 82, 收盤 75, 最高 83, 最低 65
+      12/27  開盤 73, 收盤 85, 最高 90, 最低 70
+"""
+#同一個日期（x軸）先畫陰陽線比較寬胖
+plt.bar('12/25',15,bottom=80,color='green',width=0.5) #陰
+plt.bar('12/25',25,bottom=75,color='green',width=0.1) #影
+plt.bar('12/26',7,bottom=75,color='green',width=0.5)
+plt.bar('12/26',18,bottom=65,color='green',width=0.1)
+plt.bar('12/27',12,bottom=73,color='red',width=0.5)#陽
+plt.bar('12/27',20,bottom=70,color='red',width=0.1)
+plt.show()
+----------------------------------------------------------------
+import matplotlib.pyplot as plt
+import csv
+plt.rc('font',family='Biaukai')
+with open('/Users/chenghsiuwen/Desktop/candlestick.csv',encoding='utf-8') as file: #讀取文件開頭出現\ufeff-->utf-8-sig
+    reader=csv.reader(file)
+    header=next(reader)
+    for row in reader:
+        date=row[0]
+        open_price=int(row[1])
+        close_price=int(row[2])
+        highest=int(row[3])
+        lowest=int(row[4])
+        #決定陰陽（上下跌）
+        color='green'
+        if close_price>open_price:
+            color='red'
+        plt.bar(
+            date,
+            abs(open_price-close_price), #差值取絕對值
+            bottom=min(open_price,close_price), #取最小
+            color=color,width=0.5
+        ) #陰陽
+        plt.bar(date,highest-lowest,bottom=lowest,color=color,width=0.1) #影
+    plt.xlabel('日期')
+    plt.ylabel('價格')
+    plt.title('股票走勢')
+    plt.show()
