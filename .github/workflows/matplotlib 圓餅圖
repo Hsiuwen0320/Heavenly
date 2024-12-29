@@ -1,0 +1,33 @@
+#圓餅圖：plt.pie([資料點x])
+#labels參數設定標籤
+#legend產生圖例
+#labeldistance參數設定標籤位置，0表示圓心，1表示圓周
+from cProfile import label
+import matplotlib.pyplot as plt
+plt.rc('font',family= 'BiauKai') #標楷體支援中文顯示
+x=[20,30,40]
+total=sum(x)
+labels=[str(round(100*x[0]/total,2))+'%' for data in x] #label四捨五入標籤第二位
+plt.pie(
+    [20,30,40],
+    labels=labels,
+    labeldistance=0.5
+) #設定完標籤後，呼叫legend產生圖例
+plt.legend()
+plt.show()
+----------------------------------------------------------
+import matplotlib.pyplot as plt
+plt.rc('font',family= 'BiauKai')
+import csv
+with open('/Users/chenghsiuwen/Desktop/data.csv','r',encoding='utf-8',errors='replace') as file: #匯入csv檔，用路徑
+    reader=csv.reader(file) #讀取csv檔
+    next(reader)#讀取第一列
+    x=[]
+    labels=[]
+    for row in reader:
+        labels.append(row[0]) #row[0]Chrome
+        x.append(row[1]) #row[1]60
+    plt.pie(x,labels=labels,labeldistance=0.5)
+    plt.legend() #圖例
+    plt.title('瀏覽器市場分布')
+    plt.show()

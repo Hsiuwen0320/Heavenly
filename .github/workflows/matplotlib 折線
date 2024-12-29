@@ -1,0 +1,26 @@
+from cProfile import label
+
+import matplotlib.pyplot as plt
+#使用方法 一組資料點
+plt.plot([1,2,3],[2,4,6]) #折線圖[x],[y]
+plt.show()
+#兩組資料點：在同一張圖畫出兩條折線
+#1:(2,4),(3,6),(4,8)
+#2:(2,2),(3,3),(4,4)
+plt.plot([2,3,4],[[4,2],[6,3],[8,4]])
+plt.show()
+#圖例：設定支援中文字型，設定支援環境
+from matplotlib.font_manager import FontManager
+fm=FontManager()
+mat_fonts=set(f.name for f in fm.ttflist)
+print(mat_fonts)
+plt.rc('font',family= 'BiauKai')
+#標籤與圖例
+#使用label參數方法設定標籤
+#使用legend方法產生圖例
+plt.plot([2,3,4],[[4,2],[6,3],[8,4]],label=['第一組','第二組'])
+plt.legend()
+#軸線標題：xlabel,ylabel
+plt.xlabel('x軸')
+plt.ylabel('y軸')
+plt.show()
